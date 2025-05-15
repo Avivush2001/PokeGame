@@ -1,17 +1,28 @@
 import requests
 import json
+
+from api_controller import APIController
 from db_controller import DBController
 
 def main():
-    response = requests.get('https://pokeapi.co/api/v2/pokemon?limit=1')
-    if response.status_code == 200:
-        total_pokemon = response.json()
-        print("Total pokemon: " + str(total_pokemon))
-        print(total_pokemon.values())
-    else:
-        print("Error connecting to pokeapi.co")
-        return
-    contr = DBController()
+    db_controller = DBController()
+    flag = True
+    while flag:
+        res = input('Would you like to draw a pokemon? (y/n): ')
+        if res == 'y':
+            random_pokemon = db_controller.get_random_pokemon()
+            print(random_pokemon)
+            print('\n')
+        elif res == 'n':
+            flag = False
+        else:
+            print("Invalid input. Please try again.")
+    print('Good bye!')
+
+def test():
+    API_URL = "https://pokeapi.co/api/v2/"
+    res = requests.get(API_URL + 'pokemon?limit=10')
+    print (res.json())
 
 
 

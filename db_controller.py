@@ -2,6 +2,8 @@ from pokemon import Pokemon
 import json
 import random
 from api_controller import APIController
+
+# Controller class for the data base
 class DBController:
     def __init__(self):
         self.pokemon_dict = {}
@@ -27,6 +29,6 @@ class DBController:
             json.dump(data, f, indent=3)
 
     def get_random_pokemon(self):
-        random_pokemon = [random.choice(self.api_controller.get_pokemon(100))]
+        random_pokemon = [random.choice(self.api_controller.get_pokemon(1))]
         self.insert_pokemon_list(random_pokemon)
         return random_pokemon[0]

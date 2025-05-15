@@ -1,5 +1,5 @@
 
-
+# Class that represents a pokemon object
 class Pokemon:
     def __init__(self, name, weight, height):
         self.name = name
