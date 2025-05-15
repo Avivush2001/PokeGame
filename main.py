@@ -10,9 +10,13 @@ def main():
     while flag:
         res = input('Would you like to draw a pokemon? (y/n): ')
         if res == 'y':
-            random_pokemon = db_controller.get_random_pokemon()
-            print(random_pokemon)
-            print('\n')
+            try:
+                random_pokemon = db_controller.get_random_pokemon()
+                print(random_pokemon)
+                print('\n')
+            except Exception as e:
+                print(e)
+                print('Try again in a few seconds')
         elif res == 'n':
             flag = False
         else:

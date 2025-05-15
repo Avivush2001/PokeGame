@@ -29,6 +29,7 @@ class DBController:
             json.dump(data, f, indent=3)
 
     def get_random_pokemon(self):
+
         random_pokemon = [random.choice(self.api_controller.get_pokemon(1))]
         self.insert_pokemon_list(random_pokemon)
         return random_pokemon[0]

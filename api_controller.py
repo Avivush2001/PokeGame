@@ -16,7 +16,7 @@ class APIController:
         for poke_id in random_ids:
             url = API_URL + "pokemon/" + str(poke_id)
             res = requests.get(url)
-            print(res.status_code)
+
             if res.status_code == 200:
                 data = res.json()
                 pokemon_list.append(Pokemon(data['name'], data['weight'], data['height']))
